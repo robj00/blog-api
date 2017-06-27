@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router(); 
 
@@ -6,15 +7,16 @@ const jsonParser = bodyParser.json();
 
 const {BlogPosts} = require('./models');
 
-BlogPosts.create(12345, 'Gardening', 'Lots of gardeing tips and tricks' , 'John Smith' , '01/12/17');
-BlogPosts.create(12346, 'Surfing', 'Surfing tips and tricks' , 'Rad Man' , '10/12/15');
-BlogPosts.create(12347, 'Reading', 'Speed reading for all' , 'Fast Sand' , '09/14/14');
 
-app.get('/' , (req , res) => {
+BlogPosts.create('Gardening', 'Lots of gardeing tips and tricks' , 'John Smith' , '01/12/17');
+BlogPosts.create('Surfing', 'Surfing tips and tricks' , 'Rad Man' , '10/12/15');
+BlogPosts.create('Reading', 'Speed reading for all' , 'Fast Sand' , '09/14/14');
+
+router.get('/' , (req , res) => {
 	res.json(BlogPosts.get());
 });
 
-app.post('/' , jsonParser, (req, res) => {
+router.post('/' , jsonParser, (req, res) => {
 	const requiredFields = ['title' , 'content' , 'author'];
 	for (let i=0; i<requiredFields.length; i++) {
     	const field = requiredFields[i];
@@ -29,13 +31,13 @@ app.post('/' , jsonParser, (req, res) => {
   	res.status(201).json(item);
 });
 
-app.delete('/:id' , (req , res) => {
+router.delete('/:id' , (req , res) => {
 	BlogPosts.delete(req.params.id);
 	console.log(`Deleted BlogPost item \`${req.params.id}\``);
 	res.status(204).end();
 });
 
-app.put('/:id' , jsonParser , (req , res) => {
+router.put('/:id' , jsonParser , (req , res) => {
 	const requiredFields = ['title' , 'content' , 'author'];
 		for (let i=0; i<requiredFields.length; i++) {
     		const field = requiredFields[i];
