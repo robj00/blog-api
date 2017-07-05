@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: UBwiWwBMoPCVZsmQi9eke1BQEqIG5d+ZEYXT7SzQTMQZgqYlunxzMRRgcnlUOUBqs0/BhAQlO7eimz4sJv12fA0lFs5nyQaL1Xg9JhiHlNm+yFGIbAs7h7MjL3emB6PtEfD4/TL20BhnAqlKCrAf3QHhE3HF18htUGbtlTrVDEkQJ17V26thAyvP/5XEAAX+Zm3681R4NBRZj/rZnXwBbFt9rcANcfmwe6KY07Xb0ckSM/Hg7VYg4qWBKemq/JceXF+vQQ+KNUK5QpG2SH7UQVgvezpNGYbcZjxAeG1LkWbzfZJadZV1vEIC4I2uZA9uvf3SgQaF6DZFdcBqjmnxecnIL/0R5rCsAviLOW/XWYYvdjr0LCxaXWW8LmyeYsGgi1NAfXe/3Kc6SThO6DDPzoNrvSQmmLoVifTgeh2CeMfSUpRaAJyXMBaBJsicIZv1gKMezxkYcRuBVmfKlsgdi+apkdmkUgeivCe1SCFAgi74yh0KIq5c/4IXUmA/q5VgjoZpvXNd4gU65wSyUS3rvvAJqAqsTznE62++CRpYH09V7s/x+Vy0YcwxdWBbb8rWDlH4sBAgfmPeSqI+837I/4GrONNueN3PhBEDDhdSUKI3KBMQbssKeYUtoq+Fc/dUQqwQYHiTjWYjDjikof9w3UzKgCaPn5d0f5n3CC829tY=
+  app: mysterious-wave-80450
+  on:
+    repo: robj00/blog-api
